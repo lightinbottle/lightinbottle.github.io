@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/21/Binary-Algorithm/index.html">
 <meta property="og:site_name" content="张伟的博客">
 <meta property="og:description" content="二分算法tags： 算法 面试  ##算法介绍二分算法最简单的体现是在一个有序的数组中查找某一个元素，如果元素存在就返回元素的位置（索引）如果不存在返回-1，也叫二分查找 二分查找的java代码如下：12345678910111213private static find(int[] a,int n,int x)&amp;#123;    int left=0,right=n-1;    while(le">
-<meta property="og:updated_time" content="2017-05-21T10:28:11.583Z">
+<meta property="og:updated_time" content="2017-05-21T14:27:30.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="张伟的博客">
 <meta name="twitter:description" content="二分算法tags： 算法 面试  ##算法介绍二分算法最简单的体现是在一个有序的数组中查找某一个元素，如果元素存在就返回元素的位置（索引）如果不存在返回-1，也叫二分查找 二分查找的java代码如下：12345678910111213private static find(int[] a,int n,int x)&amp;#123;    int left=0,right=n-1;    while(le">
@@ -176,6 +176,7 @@
 <p>最基础的方法是暴力枚举，算法复杂度是O(mn)</p>
 <p>利用二分法的方法也就是先将b数组排序，我们做一下表达式的变换，a[i] + b[j] ≤ s 变成 b[j] &lt;= s - a[i]，意思就是对于一个给定的a[i]，你要统计一下b数组中有多少个数小于等于s - a[i]。</p>
 <p>java代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">binarySearch</span><span class="params">()</span></span>&#123;</div><div class="line">    Arrays.sort(b);</div><div class="line">    <span class="keyword">long</span> count=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</div><div class="line">        <span class="keyword">long</span> t=(<span class="keyword">long</span>)s-a[i];</div><div class="line">        <span class="keyword">int</span> left=<span class="number">0</span>,right=m;</div><div class="line">        <span class="keyword">while</span>(left+<span class="number">1</span>&lt;right)&#123;</div><div class="line">            <span class="keyword">int</span> mid=(left+right)/<span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span>(b[mid]&lt;=t)</div><div class="line">                left=mid;</div><div class="line">             <span class="keyword">else</span></div><div class="line">                right=mid;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(b[left]&lt;=t)</div><div class="line">            count+=left+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="算法复杂度O-mlogn"><a href="#算法复杂度O-mlogn" class="headerlink" title="算法复杂度O(mlogn)"></a>算法复杂度O(mlogn)</h2><p>##通用二分法的流程</p>
 <blockquote>
 <ol>
